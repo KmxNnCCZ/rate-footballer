@@ -43,6 +43,13 @@ Xで拡散する。
 
 
 ## 機能の実装方針予定
-- rails
-- 試合情報を取得するための外部API(https://www.football-data.org/)
-- 会員登録 devise
+使用予定の技術スタック
+- フロントエンド: react
+- バックエンド: rails
+- データベース: PostgreSQL
+- インフラ: heroku
+- 認証: devise
+- 環境構築: Docker
+- テスト: RSpec
+- API: (https://www.football-data.org/)
+- その他: GitHub
