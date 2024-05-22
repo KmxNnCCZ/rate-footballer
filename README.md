@@ -1,3 +1,5 @@
+# Rate Footballer
+
 ## サービス概要
  - 試合ごとにサッカー選手を採点し、投稿できるサービス
  - 外部APIを使い試合情報を取得し、出場選手一覧を元に採点をする。なぜその点数にしたのか、自身の主観を元にした評価を選手ごとに投稿することもできる
@@ -53,3 +55,6 @@ Xで拡散する。
 - テスト: RSpec
 - API: (https://www.football-data.org/)
 - その他: GitHub
+
+# 画面遷移図
+https://www.figma.com/design/79ex3aLcAo6ByvcqNEh67B/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0-1&t=9uFzQ5PjSc6qMfva-0
