@@ -1,0 +1,40 @@
+version: '3'
+services:
+  api:
+    build: ./backend_rails/
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - ./backend_rails:/api
+    ports:
+      - 3001:3000
+    depends_on:
+      - db
+    tty: true
+    stdin_open: true
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+  db:
+    image: postgres:14
+    container_name: rate-footballer-postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - db-store:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+  front:
+    build: ./frontend_react/
+    volumes:
+      - ./frontend_react/app:/front
+    ports:
+      - 3000:3000
+    tty: true
+    stdin_open: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    command: "npm start"
+
+volumes:
+  db-store:
