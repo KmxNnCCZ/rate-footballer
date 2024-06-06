@@ -10,7 +10,6 @@ import { Notfound } from './routes/Notfound';
 function App() {
   return (
    <ChakraProvider>
-    <h1>react-router-dom</h1>
     <Routes>
       <Route path="/" element={ <Top /> }></Route>
       <Route path="login" element={ <Login /> }></Route>
