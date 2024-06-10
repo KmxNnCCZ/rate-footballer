@@ -13,23 +13,24 @@ export const signIn = (params) => {
   return client.post("auth/sign_in", params);
 };
 
-// ユーザーがログインしている場合はユーザー情報を取得
+
+// ユーザー情報を取得
 export const getUser = () => {
-  // ログインしていない場合は何も返さず終了
-  if (
-    !Cookies.get("_access_token") ||
-    !Cookies.get("_client") ||
-    !Cookies.get("_uid")
-  ){
-    return;
-  }else{
-    // ログインしている場合はヘッダーにトークンをつける
-    return client.get("/auth/sessions", {
-      headers: {
-        "access-token": Cookies.get("_access_token"),
-        client: Cookies.get("_client"),
-        uid: Cookies.get("_uid"),
-      },
-    });
+  const accessToken = Cookies.get("_access_token");
+  const clientToken = Cookies.get("_client");
+  const uid = Cookies.get("_uid");
+
+  if (!accessToken|| !clientToken || !uid) {
+    return; // 必要なクッキーが揃っていない場合、何もせずに終了
   }
+
+  // ヘッダーを設定
+  const headers = {
+    "access-token": accessToken,
+    "client": clientToken,
+    "uid": uid,
+  };
+
+  // ユーザー情報を取得
+  return client.get("/auth/sessions", { headers });
 };

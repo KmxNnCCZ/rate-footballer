@@ -3,7 +3,9 @@
 class Auth::RegistrationsController < DeviseTokenAuth::RegistrationsController
   private
 
+  wrap_parameters false
+
   def sign_up_params
-    params.permit(:email, :password, :password_confirmation, :name)
+    params.permit(:name, :email, :password, :password_confirmation)
   end
 end

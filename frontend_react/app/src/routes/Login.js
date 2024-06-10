@@ -1,12 +1,16 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+
 import { 
   Text,
   Box,
   Input,
+  InputGroup,
+  InputRightAddon,
   Button,
-  Center
+  Center,
 } from '@chakra-ui/react';
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 
 import { signIn, getUser } from '../lib/api/auth.js'
 import Cookies from "js-cookie";
@@ -16,15 +20,19 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  const [isRevealPassword, setIsRevealPassword] = useState(false);
+  const togglePassword = () => {
+    setIsRevealPassword((prevState) => !prevState);
+  }
+
   const login = async () => {
     try {
       const res = await signIn({ email, password });
       // レスポンスをもとにクッキーをセット
-      Cookies.set("_access_token", res.headers["access-token"]);
+      Cookies.set("_access_token", res.headers["accessToken"]);
       Cookies.set("_client", res.headers["client"]);
       Cookies.set("_uid", res.headers["uid"]);
-      navigate("/Top")
-
+      navigate("/")
     } catch (e) {
       console.log(e);
     }
@@ -36,8 +44,9 @@ export const Login = () => {
     const f = async () => {
       try {
         const res = await getUser();
+        console.log(res);
 	      if (res.data.isLogin) {
-          navigate("/Top");
+          navigate("/");
         }
       } catch (e) {
         console.log(e);
@@ -61,19 +70,27 @@ export const Login = () => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <Input 
-        placeholder="パスワード" 
-        mb="16px" 
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+      <InputGroup>
+        <Input
+          placeholder="パスワード"
+          mb="16px"
+          value={password}
+          type={isRevealPassword ? 'text' : 'password'}
+          onChange={(event) => setPassword(event.target.value)}
+        />
+        <InputRightAddon>
+          <Button onClick={togglePassword}>
+            {isRevealPassword  ? <ViewOffIcon /> : <ViewIcon />}
+          </Button>
+        </InputRightAddon>
+      </InputGroup>
       <Center>
         <Button alignContent="center" w="400px" backgroundColor="#89DA59" mb="8px" onClick={login}>
           ログイン
         </Button>
       </Center>
-      <Box textAlign="right">
-        <Link to="/signUp">ユーザー登録はこちら</Link>
+      <Box textAlign="right" color="blue.500">
+        <Link to="/signUp">新規登録はこちら</Link>
       </Box>
     </Box>
   )
