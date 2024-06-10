@@ -1,3 +1,5 @@
+# ログイン状態確認用コントローラー
+
 class Auth::SessionsController < ApplicationController
   def index
     if current_user
@@ -6,4 +8,5 @@ class Auth::SessionsController < ApplicationController
       render json: { is_login: false, message: "ユーザーは存在しません" }
     end
   end
+
 end
