@@ -6,7 +6,6 @@ import {
   Box,
   Flex,
   Heading,
-  useDisclosure,
   Menu,
   MenuButton,
   MenuList,
@@ -19,8 +18,6 @@ import { getUser, signOut } from '../lib/api/auth.js'
 
 export const Header = () => {
   const [loggedIn, setLoggedIn] = useState(false);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
 
   useEffect(() => {
     const checkLoggedInStatus = async() => {

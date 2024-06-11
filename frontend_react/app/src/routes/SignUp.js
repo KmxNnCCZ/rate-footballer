@@ -7,8 +7,8 @@ import {
   Text,
   Input,
   InputGroup,
-  InputRightAddon,
   Button,
+  InputRightElement,
 } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 
@@ -43,37 +43,46 @@ export const SignUp = () => {
     <Box 
       w="80%"
       mx="auto"
-      mt="20%"
+      mt="50px"
     >
-      <Text textAlign="center" fontSize="24px" color="gray.700" fontWeight="bold" mb="24px">
+      <Text textAlign="center" fontSize="24px" color="gray.700" fontWeight="bold" mb="50px">
         ユーザー新規登録
       </Text>
-      <Input
-        placeholder="ユーザー名"
-        mb="16px"
-        value={name}
-        onChange={(event) => setName(event.target.value)}
-      />
+      <Center>
+        <Input
+          placeholder="ユーザー名"
+          mb="16px"
+          maxW="600px"
+          w="100%"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+        />
+      </Center>
+      <Center>
       <Input
         placeholder="メールアドレス"
         mb="16px"
+        maxW="600px"
+        w="100%"
         value={email}
         onChange={(event) => setEmail(event.target.value)}
       />
-      <InputGroup>
-        <Input
-          placeholder="パスワード"
-          mb="16px"
-          value={password}
-          type={isRevealPassword ? 'text' : 'password'}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-        <InputRightAddon>
-          <Button onClick={togglePassword}>
-            {isRevealPassword  ? <ViewOffIcon /> : <ViewIcon />}
-          </Button>
-        </InputRightAddon>
-      </InputGroup>
+      </Center>
+      <Center>
+        <InputGroup maxW="600px" w="100%" mb="50px">
+          <Input
+            placeholder="パスワード"
+            value={password}
+            type={isRevealPassword ? 'text' : 'password'}
+            onChange={(event) => setPassword(event.target.value)}
+          />
+          <InputRightElement>
+            <Button onClick={togglePassword}>
+              {isRevealPassword  ? <ViewOffIcon /> : <ViewIcon />}
+            </Button>
+          </InputRightElement>
+        </InputGroup>
+      </Center>
       <Center>
         <Button alignContent="center" w="400px" bgColor="#89DA59"  mb="8px" onClick={register}>
           登録する

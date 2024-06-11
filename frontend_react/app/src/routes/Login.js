@@ -6,7 +6,7 @@ import {
   Box,
   Input,
   InputGroup,
-  InputRightAddon,
+  InputRightElement,
   Button,
   Center,
 } from '@chakra-ui/react';
@@ -59,31 +59,36 @@ export const Login = () => {
     <Box 
       w="80%"
       mx="auto"
-      mt="20%"
+      mt="50px"
     >
-      <Text textAlign="center" fontSize="24px" color="gray.700" fontWeight="bold" mb="24px">
+      <Text textAlign="center" fontSize="24px" color="gray.700" fontWeight="bold" mb="50px">
         ログインページ
       </Text>
-      <Input
-        placeholder="メールアドレス" 
-        mb="16px" 
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <InputGroup>
+      <Center>
         <Input
-          placeholder="パスワード"
+          placeholder="メールアドレス" 
           mb="16px"
-          value={password}
-          type={isRevealPassword ? 'text' : 'password'}
-          onChange={(event) => setPassword(event.target.value)}
+          w="100%"
+          maxW="600px"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
-        <InputRightAddon>
-          <Button onClick={togglePassword}>
-            {isRevealPassword  ? <ViewOffIcon /> : <ViewIcon />}
-          </Button>
-        </InputRightAddon>
-      </InputGroup>
+      </Center>
+      <Center>
+        <InputGroup maxW="600px" w="100%" mb="50px">
+          <Input
+            placeholder="パスワード"
+            value={password}
+            type={isRevealPassword ? 'text' : 'password'}
+            onChange={(event) => setPassword(event.target.value)}
+          />
+          <InputRightElement>
+            <Button onClick={togglePassword}>
+              {isRevealPassword  ? <ViewOffIcon /> : <ViewIcon />}
+            </Button>
+          </InputRightElement>
+        </InputGroup>
+      </Center>
       <Center>
         <Button alignContent="center" w="400px" bgColor="#89DA59" mb="8px" onClick={login}>
           ログイン
