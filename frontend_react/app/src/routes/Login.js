@@ -32,6 +32,7 @@ export const Login = () => {
       Cookies.set("_access_token", res.headers["accessToken"]);
       Cookies.set("_client", res.headers["client"]);
       Cookies.set("_uid", res.headers["uid"]);
+      window.location.reload();
       navigate("/")
     } catch (e) {
       console.log(e);
@@ -44,8 +45,7 @@ export const Login = () => {
     const f = async () => {
       try {
         const res = await getUser();
-        console.log(res);
-	      if (res.data.isLogin) {
+	      if (res && res.data.isLogin) {
           navigate("/");
         }
       } catch (e) {
@@ -85,7 +85,7 @@ export const Login = () => {
         </InputRightAddon>
       </InputGroup>
       <Center>
-        <Button alignContent="center" w="400px" backgroundColor="#89DA59" mb="8px" onClick={login}>
+        <Button alignContent="center" w="400px" bgColor="#89DA59" mb="8px" onClick={login}>
           ログイン
         </Button>
       </Center>
