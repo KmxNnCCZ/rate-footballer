@@ -75,7 +75,7 @@ export const SignUp = () => {
         </InputRightAddon>
       </InputGroup>
       <Center>
-        <Button alignContent="center" w="400px" backgroundColor="#89DA59"  mb="8px" onClick={register}>
+        <Button alignContent="center" w="400px" bgColor="#89DA59"  mb="8px" onClick={register}>
           登録する
         </Button>
       </Center>
