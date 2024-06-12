@@ -93,8 +93,6 @@ export const Header = () => {
             <Flex 
               justifyContent="flex-end" 
               alignItems="center" 
-              height="0%" 
-              pr="10px"
               gap="20px"
             >
               <Link to="#">採点一覧</Link>
