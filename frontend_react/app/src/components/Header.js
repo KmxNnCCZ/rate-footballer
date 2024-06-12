@@ -43,6 +43,7 @@ export const Header = () => {
       height="100px"
       bg="#89DA59"
       top={0}
+      position="fixed"
     >
       <Flex
         justifyContent="space-between"

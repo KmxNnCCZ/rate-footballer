@@ -27,26 +27,24 @@ export const Footer = () => {
           >
             <Link to="/">Rate Footballer</Link>
           </Heading>
-            <Flex 
-              direction="column"
-              gap="10px"
-              textAlign="right"
-              mr="50px"
-              my="50px"
-              alignItems="flex-start"
-              font-family="游ゴシック体"
-              fontSize="sm" 
-            >
-              <Box _hover={{color: "#83BD41"}}>
-                <Link to="#"><CustomChevronRightIcon/>お問い合わせ</Link>
-              </Box>
-              <Box _hover={{color: "#83BD41"}}>
-                <Link to="#"><CustomChevronRightIcon />利用規約</Link>
-              </Box>
-              <Box _hover={{color: "#83BD41"}}>
-                <Link to="#"><CustomChevronRightIcon />プライバシーポリシー</Link>
-              </Box>
-            </Flex>
+          <Flex 
+            direction="column"
+            gap="10px"
+            mr="50px"
+            my="50px"
+            alignItems="flex-start"
+            fontSize="sm" 
+          >
+            <Box _hover={{color: "#83BD41"}}>
+              <Link to="#"><CustomChevronRightIcon/>お問い合わせ</Link>
+            </Box>
+            <Box _hover={{color: "#83BD41"}}>
+              <Link to="#"><CustomChevronRightIcon />利用規約</Link>
+            </Box>
+            <Box _hover={{color: "#83BD41"}}>
+              <Link to="#"><CustomChevronRightIcon />プライバシーポリシー</Link>
+            </Box>
+          </Flex>
         </Flex>
       </Hide>
         <Hide below="md">

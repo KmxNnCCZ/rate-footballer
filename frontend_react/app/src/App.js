@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
-import { Flex, Box } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 import { Routes, Route } from 'react-router-dom';
 
 import { Header } from './components/Header.js'
+import { Body } from './components/Body.js'
 import { Footer } from './components/Footer.js'
 
 import { Top } from './routes/Top';
@@ -19,14 +20,14 @@ function App() {
       minHeight="100vh"
     >
       <Header />
-      <Box flex="1">
+      <Body>
         <Routes>
           <Route path="/" element={ <Top /> }></Route>
           <Route path="login" element={ <Login /> }></Route>
           <Route path="signUp" element={ <SignUp /> }></Route>
           <Route path="*" element={ <Notfound /> } />
         </Routes>
-      </Box>
+      </Body>
       <Footer />
     </Flex>
    </ChakraProvider>
