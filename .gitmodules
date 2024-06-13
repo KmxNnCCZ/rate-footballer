@@ -1,0 +1,6 @@
+[submodule "frontend_react"]
+	path = frontend_react
+	url = git@github.com:KmxNnCCZ/rate-footballer-frontend-react.git
+[submodule "backend_rails"]
+	path = backend_rails
+	url = git@github.com:KmxNnCCZ/rate-footballer-backend-rails.git
