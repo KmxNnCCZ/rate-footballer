@@ -22,6 +22,7 @@ services:
     volumes:
       - db-store:/var/lib/postgresql/data
     environment:
+      POSTGRES_DB: rate_footballer_development
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
   front:
